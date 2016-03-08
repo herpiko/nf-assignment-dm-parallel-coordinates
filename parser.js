@@ -5,14 +5,15 @@ csv.each('car.data.csv').on('data', function(data){
   lines++;
 
   // Move one index
-  data[7] = data[6];
+  /* var Class = data[7]; */
+  var Class = data[6];
   data[6] = data[5];
   data[5] = data[4];
   data[4] = data[3];
   data[3] = data[2];
   data[2] = data[1];
   data[1] = data[0];
-  data[0] = lines;
+  data[0] = Class;
 
   // Normalize buying
   if (data[1] == 'low') data[1] = 1;
@@ -47,11 +48,11 @@ csv.each('car.data.csv').on('data', function(data){
   if (data[6] == 'med') data[6] = 2;
   if (data[6] == 'high') data[6] = 3;
   
-  // Normalize class
-  if (data[7] == 'unacc') data[7] = 1;
-  if (data[7] == 'acc') data[7] = 2;
-  if (data[7] == 'good') data[7] = 3;
-  if (data[7] == 'vgood') data[7] = 4;
+  /* // Normalize class */
+  /* if (data[0] == 'unacc') data[0] = 1; */
+  /* if (data[0] == 'acc') data[0] = 2; */
+  /* if (data[0] == 'good') data[0] = 3; */
+  /* if (data[0] == 'vgood') data[0] = 4; */
 
   console.log(JSON.stringify(data) + ',');
   /* console.log(','); */
